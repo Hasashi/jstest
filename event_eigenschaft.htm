@@ -1,0 +1,57 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.tdt">
+<html>
+<head>
+<script type="text/javascript">
+	function geladen() {
+		alert("Dokument wurde geladen");
+	}
+	function senden() {
+		return confirm("Wollen Sie das Formular wirklich absenden?");
+	}
+	function geclickt(id) {
+		alert("Element geclickt mit ID: " + id);
+		//document.get(id).onclick = null;
+	}
+	function wechsel(id) {
+		alert("Element geändert mit ID: " + id);
+		+ "\nName: " + document.getElementById(id).name
+		+ "\nWert: " + document.getElementById(id).value;
+	}
+	function taste(id) {
+		alert("Taste heruntergedrückt in Element mit ID: " + id);
+	}
+	function maus(id) {
+		alert("Maus hineinbewegt in Element mit ID: " + id)
+		+ "\nBilddatei: " + do.get(id).scr);
+	}
+</script>
+
+</head>
+<body>
+<form id="idForm" method="post" action="event_eigenschaft.php">
+<p><input id="idButton" type="button" value="Button 1"></p>
+<p><input id="idNachname" name="nachname" size="20"> Nachname</p>
+<p><input id="idStad" name="stadt" size="20"> Stadt</p>
+<p><input type="submit"><input type="reset"></p>
+</form>
+<p><a id="idLink" href="#">Hier steht ein Hyperlink</a></p>
+<p><img id="idBild" src="im_paradies.jpg" alt="Paradies"></p>
+
+<script type="text/javascript">
+	document.body.onload = geladen;
+	document.getElementById("idForm").onsubmit =
+		function () {return senden();}
+	document.getElementById("idButton").onclick =
+		function () {geclickt("idButton");}
+	document.getElementById("idNachname").onchange =
+		function () {wechsel("idNachname");}
+	document.getElementById("idStadt").onkeydown =
+		function () {taste("idStadt");}
+	document.getElementById("idLink").onclick =
+		function () {geclickt("idLink");}
+	document.getElementById("idBild").onmouseover =
+		function () {maus("idBild");}
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.tdt">
+<html>
+<head>
+<script type="text/javascript" >
+	function wechsel(object) {
+		document.f.kontrolle.value =
+			object.name + ", " + object.value + ", Inhalt neu";
+	}
+	
+	function aenderung(object) {
+		document.f.kontrolle.value =
+			object.name + ", " + object.value + ", Zeichen neu";
+	}
+	
+	function markiert(object) {
+		var ausgabe = object.name + ", " + object.value;
+		if (object.checked) {
+			document.f.kontrolle.value = ausgabe + ", markiert";
+		}
+		else {
+			document.f.kontrolle.value = ausgabe + ", nicht markiert";
+		}
+	}
+	
+	function senden() {
+		return confirm("Wollen Sie das Formular wirklich absenden?");
+	}
+	
+	function ruecksetzen() {
+		return confirm("Wollen Sie das Formular wirlich zurücksetzen?");
+	}
+</script>
+</head>
+<body>
+<form name="f" method="post" action="event_form.php"
+	onsubmit="return senden();" onreset="return ruecksetzen();">
+<p><input name="anrede" type="radio" value="Frau"
+	onclick="wechsel(this);" checked="checked"> Herr
+<input name="anrede" type="radio" value="Frau"
+	onclick="wechsel(this);"> Frau</p>
+<p><input name="nachname" size="20"
+	onchange="wechsel(this);"> Nachname</p>
+<p><input name="vorname" size="20"
+	onkeyup="aeenderung(this);"> Vorname</p>
+<p><input name="reise" type="checkbox" value="hinflug"
+	onclick="markiert(this);"> nur Hinflug</p>
+<p><select name="land" onchange="wechsel(this);">
+	<option value="I" selected="selected">Italien</option>
+	<option value="S">Spanien</option>
+	<option value="P">Portugal</option></select> Land</p>
+<p><textarea name="bemerkung" rows="3" cols="20"
+	onchange="wechsel(this);"></textarea> Bemerkung</p>
+<p><input type="submit"><input type="reset"></p>
+<p><input name="kontrolle" size="50"
+	readonly="readonly"> Kontrolle</p>
+</form>
+</body>
+</html>

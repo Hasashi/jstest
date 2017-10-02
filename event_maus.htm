@@ -1,0 +1,24 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.tdt">
+<html>
+<head>
+<script type="text/javascript" >
+	function maus(object, ereignis) {
+		document.f.kontrolle.value = "Ereignis: " + ereignis
+		+ ", Bild: " + object.src;
+	}
+</script>
+</head>
+<body>
+<form name="f" action="#">
+	<p><input size="70" name="kontrolle"></p>
+</form>
+<p><img src="im_paradies.jpg" alt="Paradies"
+	onclick="maus(this, 'click');">
+	<img src="im_sofi.jpg" alt="Sofi" onmouseover="maus(this, 'over');" 
+	onmouseout="maus(this, 'out');">
+	<img src="im_welle.jpg" alt="Welle"	onmouseover="maus(this, 'move');">
+	<img src="im_winter.jpg" alt="Winter" onmousedown="maus(this, 'down');"
+	onmouseup="maus(this, 'up')"></p>
+</body>
+</html>
