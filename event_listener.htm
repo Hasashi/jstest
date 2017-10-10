@@ -1,0 +1,59 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.tdt">
+<html>
+<head>
+<script type="text/javascript">
+	function fClick()
+	{
+		alert("Click im Formular");
+	}
+
+	function bClick()
+	{
+			alert("Click im Button");
+
+			// if (window.addEventListener)
+			// 		document.getElementById("idButtonBubble")
+			// 		.removeEventListener("click", bClick, false);
+			// if (window.attachEvent)
+			// 		document.getElementById("idButtonBubble")
+			// 		.detachEvent("onclick", bClick);
+	}
+</script>
+</head>
+<body>
+<form id="idFormBubble"action="#">
+<p><input id="idButtonBubble" type="button"
+	value="Click mit Bubble"></p>
+</form>
+<hr>
+<form id="idFormCapture"action="#">
+<p><input id="idButtonCapture" type="button"
+	value="Click mit Capture"></p>
+</form>
+<script type="text/javascript">
+		if (window.addEventListener)
+		{
+				document.getElementById("idFormBubble")
+					.addEventListener("click", fClick, false);
+				document.getElementById("idButtonBubble")
+					.addEventListener("click", bClick, false);
+				document.getElementById("idFormCapture")
+					.addEventListener("click", fClick, true);
+				document.getElementById("idButtonCapture")
+					.addEventListener("click", bClick, true);
+		}
+		else if (window.attachEvent)
+		{
+			document.getElementById("idFormBubble")
+				.attachEvent("onclick", fClick);
+			document.getElementById("idButtonBubble")
+				.attachEvent("onclick", bClick);
+			document.getElementById("idFormCapture")
+				.attachEvent("onclick", fClick);
+			document.getElementById("idButtonCapture")
+				.attachEvent("onclick", bClick);
+		}
+</script>
+</body>
+</html>
