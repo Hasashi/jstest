@@ -7,12 +7,12 @@
 		document.f.kontrolle.value =
 			object.name + ", " + object.value + ", Inhalt neu";
 	}
-	
+
 	function aenderung(object) {
 		document.f.kontrolle.value =
 			object.name + ", " + object.value + ", Zeichen neu";
 	}
-	
+
 	function markiert(object) {
 		var ausgabe = object.name + ", " + object.value;
 		if (object.checked) {
@@ -22,11 +22,11 @@
 			document.f.kontrolle.value = ausgabe + ", nicht markiert";
 		}
 	}
-	
+
 	function senden() {
 		return confirm("Wollen Sie das Formular wirklich absenden?");
 	}
-	
+
 	function ruecksetzen() {
 		return confirm("Wollen Sie das Formular wirlich zurücksetzen?");
 	}

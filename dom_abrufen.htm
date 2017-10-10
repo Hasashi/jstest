@@ -1,0 +1,22 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.tdt">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	<title>Dom, erstes Beispiel</title>
+</head>
+<body>
+	<p>Erster Absatz</p>
+	<p>Zweiter Absatz</p>
+	<p id="a3" style="text-align:left">Dritter Absatz</p>
+	<script type="text/javascript">
+	var absatz3 = document.getElementById("a3");
+	document.write("Über ID: Inhalt: " + absatz3.firstChild.nodeValue
+	+ ", Style: " + absatz3.getAttribute("style") + "<br>");
+
+	var absatz1 = document.getElementsByTagName("p")[0];
+	document.write("Über Tag: Inhalt: " + absatz1.firstChild.nodeValue
+	+ ", Style: " + absatz1.getAttribute("style"));
+	</script>
+</body>
+</html>
