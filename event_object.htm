@@ -3,7 +3,45 @@
 <html>
 <head>
 <script type="text/javascript">
+	function gedrueckt(e) {
+		var quelle;
 
+		if (window.event)	// Ereignisobject im IE
+		{
+			e = window.event;
+			quelle = window.event.srcElement;
+		}
+		else	// Ereignisobject in anderen Browseren
+		{
+			quelle = e.target;
+		}
+
+		// Ausgewählte Member
+		var ausgabe = "Quelle: " + quelle + "\n";
+		ausgabe += "ID: " + quelle.id + "\n";
+		ausgabe += "Ereignis: " + e.type + "\n";
+		ausgabe += "Taste: " + e.keyCode + "\n";
+		ausgabe += "Strg: " + e.ctrlKey + ", Shift: " + e.shiftKey
+			+ ", Alt: " + e.altKey + "\n";
+		ausgabe += "Bildschirm. X: " + e.screenX
+			+ ", Y: " + e.screenY + "\n\n";
+
+		alert(ausgabe);
+
+		//Alle Member
+		ausgabe = "";
+		for(var m in e)
+			ausgabe += m + ": " + e[m] + "\n";
+		alert(ausgabe);
+	}
+</script>
+</head>
+<body>
+<p><img id="idBild" img src="im_paradies.jpg" alt="Paradies"></p>
+<p><input id="idEingabe" > Eingabe</p>
+<script type="text/javascript">
+	document.getElementById("idBild").onclick = gedrueckt;
+	document.getElementById("idEingabe").onkeydown = gedrueckt;
 </script>
 </body>
 </html>
